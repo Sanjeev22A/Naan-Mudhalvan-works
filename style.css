@@ -1,0 +1,88 @@
+html{
+    scroll-behavior: smooth;
+}
+
+#about-text::after{
+    content:"|";
+    display:inline-block;
+    opacity: 0;
+    transition:opacity 0.3s;
+}
+#about-text.blinking::after{
+    animation: blink 0.7s infinite;
+    opacity: 1;
+}
+
+@keyframes blink{
+  
+    50%{
+        opacity: 0;
+    }
+    
+
+}
+
+.shiny-div {
+    background: linear-gradient(180deg, #222 0%, #000 50%, #222 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid white;
+}
+.resume-btn {
+    background: linear-gradient(45deg, #ff512f, #dd2476); /* Red & Orange */
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #003d80); /* Darker Shade */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    transform: scale(1.08);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Optional Glowing Effect */
+.resume-btn::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 30px;
+}
+
+.resume-btn:hover::before {
+    opacity: 1;
+}
+
+/* Add a subtle animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.resume-btn:active {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.full-carousel-img {
+    max-height: 300px; 
+    width: auto;      
+    object-fit: contain; 
+    margin: auto;        
+}
