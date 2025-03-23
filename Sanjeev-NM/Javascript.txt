@@ -1,0 +1,12 @@
+Datatypes in javascript
+String
+Number
+Bigint
+Boolean
+Undefined
+Null
+Symbol
+Object
+
+Types of assignment:
+    let,var,const

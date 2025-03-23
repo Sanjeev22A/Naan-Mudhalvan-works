@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Game1" style="border:solid black 2px;padding:5px;margin:5px">
+        <h1 id="access" class="access">Clicked</h1>
+        <h1 id="counter"></h1>
+        <button onclick="clicker()">Click here</button>
+        <button onclick="decrement()">decrement</button>
+        <button onclick="reset()">reset</button>
+    </div>  
+    <div id="Game2" style="border:solid black 2px;padding:5px;margin:5px">
+        <div id="outerBox" style="width:200px;height:200px;margin:10px;border:solid black 2px;position: relative;"><div id="box" style="width:20px;height:20px;background-color:black;position:absolute;top:0px;left:0px;"></div></div>
+        <button onclick="moveLeft()">Left</button>
+        <button onclick="moveRight()">Right</button>
+        <button onclick="moveTop()">Top</button>
+        <button onclick="moveBottom()">Bottom</button>
+        <button onclick="move(100,20)">Dynamic move</button>
+    </div>
+    <div id="Input tag" style="border:solid black 2px;padding:5px;margin:5px">
+        <label for="tag">Input tag : </label>
+        <input id="tag" type="text" placeholder="Default">
+        <button onclick="changePlaceholder()">Click to change Placeholder</button>
+    </div>
+    <script>
+        console.log(document);
+        console.dir(document);
+        //console.log("Getting child node : ",document.childNodes[1].childNodes[2].childNodes[1])
+        h1Tag=document.childNodes[1].childNodes[2].childNodes[1];
+        h1Tag.style.color="blue";
+        
+        tag=document.getElementsByClassName("access");
+        
+        console.log(tag);
+        counter=0
+        b=document.getElementById("box");
+        ob=document.getElementById("outerBox");
+        function changePlaceholder(){
+            text=document.getElementById("tag").value;
+            if(text==""){
+                text="Default";
+            }
+            placeholder=document.getElementById("tag").getAttribute("placeholder");
+            document.getElementById("tag").placeholder=text;
+            console.log(document.getElementById("tag").getAttribute("placeholder"));
+        }
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+       
+        function moveBottom(){
+            let top=parseInt(b.style.top);
+            let height=parseInt(b.style.height);
+            let bHeight=parseInt(ob.style.height);
+            if(top+height<bHeight){
+                b.style.top=(top+10)+'px';
+           
+            }
+        }
+        function moveTop(){
+            let top=parseInt(b.style.top);
+            if(top>0){
+                b.style.top=(top-10)+"px";
+            }
+        }
+        function moveRight(){
+            let left=parseInt(b.style.left);
+            let width=parseInt(b.style.width);
+            let bWidth=parseInt(ob.style.width);
+            if(left+width<bWidth){
+                b.style.left=(left+10)+"px";
+            }
+
+        }
+        function moveLeft(){
+            let left=parseInt(b.style.left);
+            if(left>0){
+                b.style.left=(left-10)+"px";
+            }
+        }
+        async function move(param,width){
+            console.log("move");
+            for(let i=0;i<width;i++){
+                console.log("Called");
+                moveRight();
+                await sleep(param);
+            }
+            for(let i=0;i<width;i++){
+                moveBottom();
+                await sleep(param);
+            }
+            for(let i=0;i<width;i++){
+                moveLeft();
+                await sleep(param);
+            }
+            for(let i=0;i<width;i++){
+                moveTop();
+                await sleep(param);
+            }
+        }
+
+        function count(){
+            counter++;
+        }
+        function decrement(){
+            if(counter>0){
+                document.getElementById("counter").innerText=(--counter);
+            }
+        }
+        function reset(){
+            counter=0;
+            document.getElementById("counter").innerText="";
+        }
+        function clicker(){
+            document.getElementById("access").innerText="Clicked";
+            count();
+            document.getElementById("counter").innerText=counter;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Compiler</title>
+</head>
+<body>
+  <textarea id="codeInput" rows="10" cols="50"></textarea><br>
+  <button onclick="compileCode()">Compile</button><br>
+  <pre id="output"></pre>
+
+  <script>
+    function compileCode() {
+      const code = document.getElementById("codeInput").value;
+      const outputElement = document.getElementById("output");
+      try {
+        const result = eval(code);
+        outputElement.textContent = result === undefined ? 'No output' : result;
+      } catch (error) {
+        outputElement.textContent = 'Error: ' + error.message;
+      }
+    }
+  </script>
+</body>
+</html>

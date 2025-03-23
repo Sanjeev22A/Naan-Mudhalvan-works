@@ -1,0 +1,40 @@
+Truthy value/Falsy value
+
+Values other than true which evalutes to true when equivated to binary conditions
+Values other than false which evaluates to false when equivated to binary conditions
+
+
+Array accessing:
+let ab={name:"new name", hobbies:["football","cricket",["kabbadi"]]}
+
+console.log("Object : ",ab)
+console.log("Name : ",ab.name)
+console.log("Hobbies : ",ab.hobbies)
+console.log("Cricket : ",ab.hobbies[1])
+console.log(typeof ab.hobbies)
+console.log("type of the inner array : ",typeof ab.hobbies[2])
+console.log("Removing kabbadi")
+ab.hobbies[2]=ab.hobbies[2].slice(0,-1);
+console.log("Modified array : " ,ab.hobbies)
+console.log("Just printing : ",ab.hobbies[2])
+
+Object :
+
+
+person={name:"Sanjeev",Reg_no:2022503057,batch:1};
+console.log(person)
+console.log(person.name)
+
+for in vs for Of
+in- gives the index
+of - gives the value
+
+MongoDB
+https://www.mongodbtutorial.org/mongodb-cheat-sheet/#:~:text=MongoDB%20Cheat%20Sheet%201%20Connect%20to%20a%20MongoDB,Insert%20one%20document%20into%20the%20books%20collection%3A%20
+
+
+DOM:
+To use the html elements in js it must be changed to a node
+
+innerText="Used to change the text content of the html element"
+innerHTML="USed to change the html content of the html element"
