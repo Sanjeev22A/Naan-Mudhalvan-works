@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="timer">Counter Not Started!!</h1>
+    <form onsubmit="startCounter()">
+        <label for="endTime">Enter the end time : </label>
+        <input type="datetime-local" id="endTime" required>
+        <br><br>
+        <button style="margin-left:50px" onclick="startCounter()" type="button">Click To start the timer</button>
+        <h2 style="visibility: hidden;" id="msg">Error message!!</h2>
+    </form>
+    <script>
+        function reset(){
+            document.getElementById('timer').innerHTML="Counter Not Started!!";
+            document.getElementById('endTime').value="";
+        }
+        function getEndTime(){
+            endTime=document.getElementById('endTime').value;
+            elem=document.getElementById('msg');
+            if(endTime=="" || endTime==null){
+                
+                elem.innerHTML="Please enter end time";
+                elem.style.visibility="visible";
+                return false;
+            }else{
+                elem.innerHTML="Error message!!";
+                elem.style.visibility="hidden";
+                endTime=new Date(endTime).getTime();
+                return endTime;
+            }
+            
+            console.log(endTime);
+        }
+        function startCounter(){
+            console.log("called");
+            endTime=getEndTime();
+            console.log(endTime)
+            
+            if(endTime==false){return;}
+
+            //Called after every second
+            elem=document.getElementById('timer');
+            let timeInterval=setInterval(()=>{
+                const now=new Date().getTime();
+                console.log(now);
+                const timeLeft=endTime-now;
+                console.log(timeLeft);
+                if(timeLeft<0){
+                    clearInterval(timeInterval());
+                    elem.innerHTML="Timer complete!!";
+                    return;
+                }else{
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    elem.innerText=days+"day :"+hours+"hours :"+minutes+"minutes :"+seconds+"seconds ";
+
+                }
+            },1000);
+
+            
+        }
+        
+
+        //Function to call when window gets loaded
+        window.onload=function(){
+            reset();
+        };
+    </script>
+</body>
+</html>

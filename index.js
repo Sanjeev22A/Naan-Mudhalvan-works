@@ -21,14 +21,14 @@ function customWriter(texts){
     box.style.height=`${texts.length*lineHeight}`;
     
     const typeWriter=()=>{
-        //element.classList.remove('blinking');
+        element.classList.remove('blinking');
         if(i<texts.length){
             if(j<texts[i].length){
                 element.innerHTML+=texts[i].charAt(j);
                 j++;
                 setTimeout(typeWriter,speed);
             }else{
-                //element.classList.add("blinking");
+                element.classList.add("blinking");
                 setTimeout(()=>{
                     element.innerHTML+="<br>";
                     j=0;

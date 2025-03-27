@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mouse position : </h1>
+    <h2 id="x">X position : </h2>
+    <h2 id="y">Y position : </h2>
+    <button type="button" style="margin-right:20px" onclick="activate()">Active mouse position</button>
+    <button type="button" onclick="deactivate()">Deactivate mouse position</button>
+    <script>
+        setCord=(cx,cy)=>{
+            x=document.getElementById('x');
+            y=document.getElementById('y');
+            x.innerText=`X position : ${cx}`;
+            y.innerText=`Y position : ${cy}`;
+        }
+        updateCord=()=>{
+            setCord(event.clientX,event.clientY);
+        };
+        document.addEventListener("mousemove",updateCord);
+        function activate(){
+            document.addEventListener("mousemove",updateCord);
+        }
+        function deactivate(){
+            document.removeEventListener("mousemove",updateCord);
+            setCord(0,0);
+        }
+    </script>
+</body>
+</html>
