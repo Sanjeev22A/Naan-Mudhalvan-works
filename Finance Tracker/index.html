@@ -9,9 +9,12 @@
 </head>
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="container border shadow-lg rounded p-4 bg-white" style="max-width: 400px;">
-            <h2 class="mb-4 text-center">Finance Tracker</h2>
+    <div class="row">
+        <div class="col-md-12 text-center mt-5">
+            <h1 class="mb-4 fs-1 fw-bolder fst-italic">Finance Tracker</h1>
+        </div>
+        <div class="container border shadow-lg rounded p-4 bg-white col-md-6" style="max-width: 400px;">
+            <h2 class="mb-4 text-center">Entry</h2>
             <form id="expenseForm">
                 <div class="mb-3">
                     <label for="Purpose" class="form-label">Purpose</label>
@@ -41,7 +44,8 @@
                 </div>
             </form>
         </div>
-        <div class="container mt-5" style="max-width: 800px;">
+        
+        <div class="container mt-5 col-md-6" style="max-width: 800px;">
             <h3 class="text-center">Expense Records</h3>
             <table class="table table-bordered mt-3">
                 <thead>
@@ -59,6 +63,18 @@
             <div class="container mt-3" style="max-width: 800px;">
                 <h4 class="text-center">Total Amount Spent: $<span id="totalAmount">0</span></h4>
             </div>
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <h2 class="mb-4">File operations</h2>
+            <form id="fileform" class="container border shadow-lg rounded p-4 bg-white col-md-12">
+                <div class="mb-3">
+                    <label for="fileInput" class="form-label mb-3">Select a file to load:</label>
+                    <input type="file" class="form-control mb-3" id="fileInput" accept=".json">
+                    <button type="button" class="btn btn-primary mb-3" id="saveBtn">Save to File</button>
+                    <button type="button" class="btn btn-secondary mb-3" id="loadBtn">Load from File</button>
+                </div>
+
+            </form>
         </div>
         
     </div>
