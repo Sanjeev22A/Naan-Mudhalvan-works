@@ -1,0 +1,31 @@
+[
+    {
+      "purpose": "Buy groceries",
+      "amount": 50.25,
+      "date": "2025-04-01",
+      "category": "Food",
+      "totalAmount": 1500
+    },
+    {
+      "purpose": "Gym membership",
+      "amount": 30,
+      "date": "2025-04-02",
+      "category": "Health",
+      "totalAmount": 1470
+    },
+    {
+      "purpose": "Movie night",
+      "amount": 15,
+      "date": "2025-04-03",
+      "category": "Entertainment",
+      "totalAmount": 1455
+    },
+    {
+      "purpose": "Electricity bill",
+      "amount": 120.75,
+      "date": "2025-04-04",
+      "category": "Utilities",
+      "totalAmount": 1334.25
+    }
+  ]
+  
