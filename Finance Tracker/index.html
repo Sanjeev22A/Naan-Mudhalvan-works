@@ -13,6 +13,20 @@
         <div class="col-md-12 text-center mt-5">
             <h1 class="mb-4 fs-1 fw-bolder fst-italic">Finance Tracker</h1>
         </div>
+        <div class="col-md-6 text-center mt-3 mb-5">
+            <h2 class="fst-italic">Your Wallet balance : $<span id="balance">0</span></h2>
+        </div>
+        <div class="col-md-6 text-center mt-3 mb-5">
+            <form id="walletForm" class="container border shadow-lg rounded p-4 bg-white col-md-6" style="max-width: 400px;">
+                <h2 class="mb-4">Wallet</h2>
+                <div class="mb-3">
+                    <label for="walletAmount" class="form-label">Enter amount to add to wallet</label>
+                    <input type="number" class="form-control" id="walletAmount" placeholder="Enter amount" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Add to Wallet</button>
+            </form>
+        </div>
+        <hr>
         <div class="container border shadow-lg rounded p-4 bg-white col-md-6" style="max-width: 400px;">
             <h2 class="mb-4 text-center">Entry</h2>
             <form id="expenseForm">
@@ -65,13 +79,13 @@
             </div>
         </div>
         <div class="col-md-12 mt-5 text-center">
-            <h2 class="mb-4">File operations</h2>
+            <h2 class="mb-4">Persistant store</h2>
             <form id="fileform" class="container border shadow-lg rounded p-4 bg-white col-md-12">
                 <div class="mb-3">
                     <label for="fileInput" class="form-label mb-3">Select a file to load:</label>
                     <input type="file" class="form-control mb-3" id="fileInput" accept=".json">
-                    <button type="button" class="btn btn-primary mb-3" id="saveBtn">Save to File</button>
-                    <button type="button" class="btn btn-secondary mb-3" id="loadBtn">Load from File</button>
+                    <button type="button" class="btn btn-primary mb-3" id="saveBtn">Export as JSON</button>
+                    <button type="button" class="btn btn-secondary mb-3" id="loadBtn">Import from JSON</button>
                 </div>
 
             </form>
